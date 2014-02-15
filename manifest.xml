@@ -1,0 +1,21 @@
+<package>
+  <description brief="multi_2d_navigation">
+
+     multi_2d_navigation
+
+  </description>
+  <author>hdeeken, spuetz</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/multi_2d_navigation</url>
+  <depend package="roscpp"/>
+  <depend package="topic_tools"/>
+  <depend package="gmapping"/>
+  <depend package="move_base"/>
+  <depend package="amcl"/>
+  <depend package="costmap_2d"/>
+  <depend package="map_server_2d"/>
+
+</package>
+
+

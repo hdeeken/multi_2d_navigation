@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!--node name="static_tf0" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /map /odom_combined 100"/-->
+
+	##
+	## Localization
+	##
+	<!--node name="map_server" pkg="map_server" type="map_server" output="screen" args="$(find multi_2d_navigation)/maps/avz3floor_complete.yaml" >
+		<param name="frame_id" value="/map"/>
+	</node-->
+
+	<include file="$(find hobbes_navigation)/launch/amcl.launch" />
+
+	#
+	# Navigation
+	#
+
+	<!-- static maps for testing purposes -->
+	<include file="$(find multi_2d_navigation)/launch/multi_2d_maps.launch" />
+
+	<!-- map_server_2d: gives functionality to extract grids from the database -->
+	<rosparam command="load" file="$(find map_server_2d)/config/old_blocked_region_params.yaml" />
+	<rosparam command="load" file="$(find map_server_2d)/config/grid_generation_params.yaml" />
+
+	<!--node name="map_server_2d" pkg="map_server_2d" type="map_server_2d" output="screen">
+		<param name="map_frame" value="/map" />
+		<param name="only_offline_srvs" value="false" />
+		<param name="publish"   value="false"/>
+		<param name="debug"   value="false"/>
+	</node-->
+
+	<!-- move_base: perfoms global and local planning for given goals -->
+	<include file="$(find multi_2d_navigation)/launch/move_base.launch" />
+
+</launch>

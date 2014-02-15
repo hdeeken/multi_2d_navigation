@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- 
+   This file launches three static costmaps for three static decompositions of a PR2-like Robot. 
+   By combining these three maps with individual fooprints into one master costmap (global costmap of move_base)
+   simplistic 3D Navigation is made possible.
+  -->
+
+  # BASE MAP
+
+  <node name="mesh_publisher" pkg="lvr_ros_bridge" type="mesh_publisher" output="screen">
+	<param name="mesh_topic" value="/input_mesh"/>
+	<param name="mesh_frame" value="/map"/>
+	<param name="path" value="/home/hdeeken/ros-groovy/data/horn_mesh1.ply"/>
+  </node>
+
+  <!-- Run the static occupancy grid -->
+  <node pkg="map_server" type="map_server" output="screen" name="base_map" args="$(find multi_2d_navigation)/maps/costmaps/base_map.yaml" >
+    <remap from="map" to="/static_base_map"/>
+    <param name="frame_id" value="/map"/>
+  </node>
+
+  <!-- Run the costmap node -->
+  <node pkg="costmap_2d" type="costmap_2d_node" name="base_costmap">
+    <rosparam file="$(find multi_2d_navigation)/maps/costmaps/base_costmap.yaml" command="load" ns="costmap" />
+  </node>
+  
+  <!-- Publishes the voxel grid to rviz for display -->
+  <node pkg="costmap_2d" type="costmap_2d_markers" name="base_costmap_marker">
+    <remap from="voxel_grid" to="/base_costmap/costmap/voxel_grid"/>
+    <remap from="visualization_marker" to="/base_costmap/costmap/voxel_grid_marker"/>
+  </node>
+  
+  <!-- Publishes the voxel grid to rviz for display -->
+  <node pkg="costmap_2d" type="costmap_2d_cloud" name="base_costmap_cloud">
+    <remap from="voxel_grid" to="/base_costmap/costmap/voxel_grid"/>
+    <remap from="voxel_marked_cloud" to="/base_costmap/costmap/voxel_marked_cloud"/>
+    <remap from="voxel_unkown_cloud" to="/base_costmap/costmap/voxel_unkown_cloud"/>
+  </node>
+
+  # SPINE MAP
+
+  <node pkg="map_server" type="map_server" name="spine_map" output="screen" args="$(find multi_2d_navigation)/maps/costmaps/spine_map.yaml" >
+    <remap from="map" to="/static_spine_map"/>
+    <param name="frame_id" value="/map"/>
+  </node>
+
+  <node pkg="costmap_2d" type="costmap_2d_node" name="spine_costmap">
+    <rosparam file="$(find multi_2d_navigation)/maps/costmaps/spine_costmap.yaml" command="load" ns="costmap" />
+  </node>
+
+  # ARM MAP
+
+  <node pkg="map_server" type="map_server" name="arm_map" output="screen" args="$(find multi_2d_navigation)/maps/costmaps/arm_map.yaml" >
+    <remap from="map" to="/static_arm_map"/>
+    <param name="frame_id" value="/map"/>
+  </node>
+
+  <node name="arm_costmap" pkg="costmap_2d" type="costmap_2d_node" >
+    <rosparam file="$(find multi_2d_navigation)/maps/costmaps/arm_costmap.yaml" command="load" ns="costmap"/>
+  </node>
+  
+</launch>
