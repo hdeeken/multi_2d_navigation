@@ -5,6 +5,10 @@ update_frequency: 5.0
 publish_frequency: 1.5
 
 footprint: [[0.235,0.185],[-0.235,0.185],[-0.235,-0.185],[0.235,-0.185]]
+#footprint_topic: /base_footprint_udate
+#use_footprint_update: false
+#footprint_links: [ alle links die bounding box für footprint geben 
+
 obstacle_range: 2.5
 raytrace_range: 3.0
 
@@ -37,4 +41,3 @@ mesh_layer:
    grid_resolution: 0.01
    region: [no,regions]
    unoccupied_default: 0.0
-   
