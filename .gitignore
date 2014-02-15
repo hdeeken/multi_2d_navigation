@@ -1,3 +1,9 @@
+Makefile
+lib/
+build/
+srv_gen/
+msg_gen/
+
 # Compiled Object files
 *.slo
 *.lo
