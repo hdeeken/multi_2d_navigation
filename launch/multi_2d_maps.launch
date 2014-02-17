@@ -23,18 +23,18 @@
   </node>
 
   <!-- Run the costmap node -->
-  <node pkg="costmap_2d" type="costmap_2d_node" name="base_costmap">
+  <node pkg="costmap_2d" type="costmap_2d_node" name="base_costmap" output="screen">
     <rosparam file="$(find multi_2d_navigation)/maps/costmaps/base_costmap.yaml" command="load" ns="costmap" />
   </node>
   
   <!-- Publishes the voxel grid to rviz for display -->
-  <node pkg="costmap_2d" type="costmap_2d_markers" name="base_costmap_marker">
+  <node pkg="costmap_2d" type="costmap_2d_markers" name="base_costmap_marker" output="screen">
     <remap from="voxel_grid" to="/base_costmap/costmap/voxel_grid"/>
     <remap from="visualization_marker" to="/base_costmap/costmap/voxel_grid_marker"/>
   </node>
   
   <!-- Publishes the voxel grid to rviz for display -->
-  <node pkg="costmap_2d" type="costmap_2d_cloud" name="base_costmap_cloud">
+  <node pkg="costmap_2d" type="costmap_2d_cloud" name="base_costmap_cloud" output="screen">
     <remap from="voxel_grid" to="/base_costmap/costmap/voxel_grid"/>
     <remap from="voxel_marked_cloud" to="/base_costmap/costmap/voxel_marked_cloud"/>
     <remap from="voxel_unkown_cloud" to="/base_costmap/costmap/voxel_unkown_cloud"/>
@@ -47,7 +47,7 @@
     <param name="frame_id" value="/map"/>
   </node>
 
-  <node pkg="costmap_2d" type="costmap_2d_node" name="spine_costmap">
+  <node pkg="costmap_2d" type="costmap_2d_node" name="spine_costmap" output="screen">
     <rosparam file="$(find multi_2d_navigation)/maps/costmaps/spine_costmap.yaml" command="load" ns="costmap" />
   </node>
 
@@ -58,7 +58,7 @@
     <param name="frame_id" value="/map"/>
   </node>
 
-  <node name="arm_costmap" pkg="costmap_2d" type="costmap_2d_node" >
+  <node name="arm_costmap" pkg="costmap_2d" type="costmap_2d_node" output="screen">
     <rosparam file="$(find multi_2d_navigation)/maps/costmaps/arm_costmap.yaml" command="load" ns="costmap"/>
   </node>
   
