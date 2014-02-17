@@ -17,7 +17,8 @@ inflation_radius: 0.00
 publish_raw_data: true
 
 plugins: 
-    - {name: static_spine_map,    type: "costmap_2d::StaticLayer"}
+    - {name: mesh_layer,       type: "map_server_2d::MeshLayer"}
+    #- {name: static_spine_map,    type: "costmap_2d::StaticLayer"}
     - {name: spine_footprint,     type: "costmap_2d::FootprintLayer"}
     - {name: inflation_layer,     type: "costmap_2d::InflationLayer"}
 
@@ -25,3 +26,25 @@ static_spine_map:
     unknown_cost_value: 0
     lethal_cost_threshold: 10
     map_topic: /static_spine_map
+
+mesh_layer:
+   publish_grid: true
+   grid_topic: /spine_grid
+   publish_markers: true
+   r: 0.0
+   g: 1.0
+   b: 0.0
+   a: 1.0
+   marker_topic: /spine_marker
+   use_callback: true
+   mesh_topic: /input_mesh
+   use_maximum: false
+   dimension: z
+   min_value: 0.55
+   max_value: 0.85
+   resolution: 0.01
+   grid_resolution: 0.01
+   #region: ["no", "regions"]
+   unoccupied_default: 0.0
+   track_unknown_space: false
+   trinary_costmap: true

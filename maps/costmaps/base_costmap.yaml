@@ -15,13 +15,12 @@ raytrace_range: 3.0
 static_map: true
 rolling_window: false
 
-inflation_radius: 1.5
-
+inflation_radius: 0.0
 publish_raw_data: true
 
 plugins: 
     - {name: mesh_layer,       type: "map_server_2d::MeshLayer"}
-    - {name: static_base_map,  type: "costmap_2d::StaticLayer"}
+    #- {name: static_base_map,  type: "costmap_2d::StaticLayer"}
     - {name: base_footprint,   type: "costmap_2d::FootprintLayer"}
     - {name: inflation_layer,  type: "costmap_2d::InflationLayer"}
 
@@ -31,13 +30,22 @@ static_base_map:
     map_topic: /static_base_map
 
 mesh_layer:
+   publish_grid: true
+   grid_topic: /base_grid
+   publish_markers: true
+   marker_topic: /base_marker
+   r: 0.0
+   g: 0.0
+   b: 1.0
    use_callback: true
    mesh_topic: /input_mesh
    use_maximum: false
    dimension: z
-   min_value: 0.5
-   max_value: 1.0
+   min_value: 0.05
+   max_value: 0.50
    resolution: 0.01
    grid_resolution: 0.01
-   region: [no,regions]
+   #region: ["no", "regions"]
    unoccupied_default: 0.0
+   track_unknown_space: false
+   trinary_costmap: true
