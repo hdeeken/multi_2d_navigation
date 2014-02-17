@@ -9,10 +9,11 @@
 
   # BASE MAP
 
-  <node name="mesh_publisher" pkg="lvr_ros_bridge" type="mesh_publisher" output="screen">
-	<param name="mesh_topic" value="/input_mesh"/>
-	<param name="mesh_frame" value="/map"/>
-	<param name="path" value="/home/hdeeken/ros-groovy/data/horn_mesh1.ply"/>
+  <node name="mesh_publisher" pkg="lvr_tools" type="mesh_publisher" output="screen">
+	<param name="from_file_topic" value="/input_mesh"/>
+	<param name="frame" value="/map"/>
+	<param name="from_file_path" value="/media/media/ros-karte-data/ply/slice_test.ply"/>
+	<param name="rate" value="0.1"/>
   </node>
 
   <!-- Run the static occupancy grid -->
