@@ -41,7 +41,7 @@
   </node>
 
   # SPINE MAP
-
+<!--
   <node pkg="map_server" type="map_server" name="spine_map" output="screen" args="$(find multi_2d_navigation)/maps/costmaps/spine_map.yaml" >
     <remap from="map" to="/static_spine_map"/>
     <param name="frame_id" value="/map"/>
@@ -50,9 +50,9 @@
   <node pkg="costmap_2d" type="costmap_2d_node" name="spine_costmap" output="screen">
     <rosparam file="$(find multi_2d_navigation)/maps/costmaps/spine_costmap.yaml" command="load" ns="costmap" />
   </node>
-
+-->
   # ARM MAP
-
+<!--
   <node pkg="map_server" type="map_server" name="arm_map" output="screen" args="$(find multi_2d_navigation)/maps/costmaps/arm_map.yaml" >
     <remap from="map" to="/static_arm_map"/>
     <param name="frame_id" value="/map"/>
@@ -61,5 +61,5 @@
   <node name="arm_costmap" pkg="costmap_2d" type="costmap_2d_node" output="screen">
     <rosparam file="$(find multi_2d_navigation)/maps/costmaps/arm_costmap.yaml" command="load" ns="costmap"/>
   </node>
-  
+-->
 </launch>

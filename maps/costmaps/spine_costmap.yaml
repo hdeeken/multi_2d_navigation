@@ -5,6 +5,22 @@ robot_base_frame: /base_footprint
 update_frequency: 5.0
 publish_frequency: 0.5
 
+footprint_type: static
+
+footprint_links:
+ - name: structure
+ - name: pole
+ - name: cup
+ - name: katana_base_link
+ - name: katana_motor1_pan_link
+ - name: katana_motor2_lift_link
+ - name: katana_motor3_lift_link
+ - name: katana_motor4_lift_link
+ - name: katana_motor5_wrist_roll_link
+ - name: katana_gripper_link
+ - name: katana_r_finger_link
+ - name: katana_l_finger_link
+
 footprint: [[0.055,0.185],[-0.235,0.185],[-0.235,-0.185],[0.055,-0.185]]
 obstacle_range: 2.5
 raytrace_range: 3.0
@@ -17,8 +33,8 @@ inflation_radius: 0.00
 publish_raw_data: true
 
 plugins: 
-    - {name: mesh_layer,       type: "map_server_2d::MeshLayer"}
-    #- {name: static_spine_map,    type: "costmap_2d::StaticLayer"}
+   # - {name: mesh_layer,       type: "map_server_2d::MeshLayer"}
+    - {name: static_spine_map,    type: "costmap_2d::StaticLayer"}
     - {name: spine_footprint,     type: "costmap_2d::FootprintLayer"}
     - {name: inflation_layer,     type: "costmap_2d::InflationLayer"}
 

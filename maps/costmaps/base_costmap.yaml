@@ -19,8 +19,8 @@ inflation_radius: 0.0
 publish_raw_data: true
 
 plugins: 
-    - {name: mesh_layer,       type: "map_server_2d::MeshLayer"}
-    #- {name: static_base_map,  type: "costmap_2d::StaticLayer"}
+    # - {name: mesh_layer,       type: "map_server_2d::MeshLayer"}
+    - {name: static_base_map,  type: "costmap_2d::StaticLayer"}
     - {name: base_footprint,   type: "costmap_2d::FootprintLayer"}
     - {name: inflation_layer,  type: "costmap_2d::InflationLayer"}
 
