@@ -1,8 +1,18 @@
 <?xml version="1.0"?>
 <launch>
 
+	<node name="static_tf0" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /map /odom_combined 100"/>
+
 	<include file="$(find postgis_control)/launch/postgis_services.launch"/>
-	
+
+	<node pkg="laser_assembler" type="point_cloud2_assembler" name="combine_clouds" output="screen">
+		<remap from="assemble_scans2" to="combine_clouds"/>
+		<remap from="cloud" to="combine_clouds_input"/>
+		<param name="max_clouds" value="10000" />
+		<param name="fixed_frame" value="/map" />
+		<param name="ignore_laser_skew" value="false" />
+	</node>
+
 	<node name="PointCloudExporter" pkg="threedtk_tools" type="slam6d_exporter" output="screen" />
 
 	<node name="slam6d" pkg="threedtk_tools" type="slam6d_node" output="screen">
