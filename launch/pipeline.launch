@@ -39,7 +39,7 @@
 	<node name="lvr_fusion" pkg="lvr_tools" type="lvr_fusion_node" output="screen">
 		<param name="verbose_lvr" value="false"/>
 		<param name="use_callback" value="false"/>
-		<param name="type" value="integrate"/>
+		<param name="type" value="remote"/>
 		<param name="distance_threshold" value="0.05"/>
 	</node>
 
