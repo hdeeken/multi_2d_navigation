@@ -3,7 +3,7 @@
 
 	<node name="static_tf0" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /map /odom_combined 100"/>
 
-	<include file="$(find postgis_control)/launch/postgis_services.launch"/>
+	<include file="$(find postgis_control)/launch/hdeekens_db.launch"/>
 
 	<node pkg="laser_assembler" type="point_cloud2_assembler" name="combine_clouds" output="screen">
 		<remap from="assemble_scans2" to="combine_clouds"/>

@@ -12,8 +12,10 @@
   <node name="mesh_publisher" pkg="lvr_tools" type="mesh_publisher" output="screen">
 	<param name="from_file_topic" value="/input_mesh"/>
 	<param name="frame" value="/map"/>
-	<param name="from_file_path" value="/media/media/ros-karte-data/ply/slice_test.ply"/>
-	<param name="rate" value="0.1"/>
+	<param name="from_file_path" value="/home/hdeeken/Desktop/scaled_ascii_ros_new.ply"/>
+	
+	<!--param name="from_file_path" value="/media/media/ros-karte-data/ply/slice_test.ply"/-->
+	<param name="rate" value="0.7"/>
   </node>
 
   <!-- Run the static occupancy grid -->

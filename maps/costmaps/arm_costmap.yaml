@@ -2,22 +2,35 @@
 global_frame: /map
 robot_base_frame: /base_footprint
 update_frequency: 5.0
-publish_frequency: 1.5
+publish_frequency: 0.5
+
+footprint_type: static
 
 footprint: [[0.535,0.285],[-0.235,0.185],[-0.235,-0.185],[0.535,-0.285]]
+
+footprint_links:
+ - name: katana_base_link
+ - name: katana_motor1_pan_link
+ - name: katana_motor2_lift_link
+ - name: katana_motor3_lift_link
+ - name: katana_motor4_lift_link
+# - name: katana_motor5_wrist_roll_link
+# - name: katana_gripper_link
+# - name: katana_internal_controlbox_link
+ - name: katana_r_finger_link
+ - name: katana_l_finger_link
+
 obstacle_range: 2.5
 raytrace_range: 3.0
 
 static_map: true
 rolling_window: false
-
 inflation_radius: 0.0
-
 publish_raw_data: true
 
 plugins: 
-    # - {name: mesh_layer,       type: "map_server_2d::MeshLayer"}
-    - {name: static_arm_map,  type: "costmap_2d::StaticLayer"}
+    - {name: mesh_layer,       type: "map_server_2d::MeshLayer"}
+    #- {name: static_arm_map,  type: "costmap_2d::StaticLayer"}
     - {name: arm_footprint,   type: "costmap_2d::FootprintLayer"}
     - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
 
@@ -31,15 +44,16 @@ mesh_layer:
    grid_topic: /arm_grid
    publish_markers: true
    r: 1.0
-   g: 0.0
+   g: 0.33
    b: 0.0
+   a: 1.0
    marker_topic: /arm_marker
    use_callback: true
    mesh_topic: /input_mesh
    use_maximum: false
    dimension: z
-   min_value: 0.90
-   max_value: 1.0
+   max_value: 1.05
+   min_value: 0.71
    resolution: 0.01
    grid_resolution: 0.01
    #region: ["no", "regions"]
