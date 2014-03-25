@@ -11,7 +11,8 @@ inflation_radius: 0.0
 publish_raw_data: true
 
 #footprint usage
-footprint_type: static
+# static, dynamic, topic
+footprint_type: manual 
 footprint: [[0.235,0.185],[-0.235,0.185],[-0.235,-0.185],[0.235,-0.185]]
 footprint_topic: /base_footprint_udate
 use_footprint_update: false
@@ -57,7 +58,7 @@ mesh_layer:
    track_unknown_space: false
    trinary_costmap: true
    # setup input 
-   use_callback: true
+   use_callback: false
    mesh_topic: /input_mesh
    # output, mainly for debugging purposes
    publish_grid: true
@@ -68,3 +69,9 @@ mesh_layer:
    r: 0.1
    b: 0.0
    a: 1.0
+   mesh_regions: 
+     - {name: wall}
+   blocked_regions:
+     - {name: blackboard, padding: 0.0}
+     - {name: calvin, padding: 0.0}
+     - {name: table, padding: 0.0}

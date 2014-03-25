@@ -9,20 +9,20 @@
 
   # BASE MAP
 
-  <node name="mesh_publisher" pkg="lvr_tools" type="mesh_publisher" output="screen">
+  <!--node name="mesh_publisher" pkg="lvr_tools" type="mesh_publisher" output="screen">
 	<param name="from_file_topic" value="/input_mesh"/>
 	<param name="frame" value="/map"/>
 	<param name="from_file_path" value="/home/hdeeken/Desktop/scaled_ascii_ros_new.ply"/>
 	
-	<!--param name="from_file_path" value="/media/media/ros-karte-data/ply/slice_test.ply"/-->
+	<!- -param name="from_file_path" value="/media/media/ros-karte-data/ply/slice_test.ply"/- ->
 	<param name="rate" value="0.7"/>
-  </node>
+  </node-->
 
   <!-- Run the static occupancy grid -->
-  <node pkg="map_server" type="map_server" output="screen" name="base_map" args="$(find multi_2d_navigation)/maps/costmaps/base_map.yaml" >
+  <!--node pkg="map_server" type="map_server" output="screen" name="base_map" args="$(find multi_2d_navigation)/maps/costmaps/base_map.yaml" >
     <remap from="map" to="/static_base_map"/>
     <param name="frame_id" value="/map"/>
-  </node>
+  </node-->
 
   <!-- Run the costmap node -->
   <node pkg="costmap_2d" type="costmap_2d_node" name="base_costmap" output="screen">
@@ -44,24 +44,24 @@
 
   # SPINE MAP
 
-  <node pkg="map_server" type="map_server" name="spine_map" output="screen" args="$(find multi_2d_navigation)/maps/costmaps/spine_map.yaml" >
+  <!--node pkg="map_server" type="map_server" name="spine_map" output="screen" args="$(find multi_2d_navigation)/maps/costmaps/spine_map.yaml" >
     <remap from="map" to="/static_spine_map"/>
     <param name="frame_id" value="/map"/>
-  </node>
+  </node-->
 
-  <node pkg="costmap_2d" type="costmap_2d_node" name="spine_costmap" output="screen">
+  <!--node pkg="costmap_2d" type="costmap_2d_node" name="spine_costmap" output="screen">
     <rosparam file="$(find multi_2d_navigation)/maps/costmaps/spine_costmap.yaml" command="load" ns="costmap" />
-  </node>
+  </node-->
 
   # ARM MAP
 
-  <node pkg="map_server" type="map_server" name="arm_map" output="screen" args="$(find multi_2d_navigation)/maps/costmaps/arm_map.yaml" >
+  <!--node pkg="map_server" type="map_server" name="arm_map" output="screen" args="$(find multi_2d_navigation)/maps/costmaps/arm_map.yaml" >
     <remap from="map" to="/static_arm_map"/>
     <param name="frame_id" value="/map"/>
-  </node>
-
-  <node name="arm_costmap" pkg="costmap_2d" type="costmap_2d_node" output="screen">
+  </node-->
+  
+  <!-- node name="arm_costmap" pkg="costmap_2d" type="costmap_2d_node" output="screen">
     <rosparam file="$(find multi_2d_navigation)/maps/costmaps/arm_costmap.yaml" command="load" ns="costmap"/>
-  </node>
+  </node-->
 
 </launch>

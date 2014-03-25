@@ -48,7 +48,7 @@ mesh_layer:
    b: 0.0
    a: 1.0
    marker_topic: /arm_marker
-   use_callback: true
+   use_callback: false
    mesh_topic: /input_mesh
    use_maximum: false
    dimension: z
@@ -60,3 +60,9 @@ mesh_layer:
    unoccupied_default: 0.0
    track_unknown_space: false
    trinary_costmap: true
+   mesh_regions: 
+     - {name: wall}
+   blocked_regions:
+     - {name: calvin, padding: 0.0}
+     - {name: table, padding: 0.0}
+     - {name: blackboard, padding: 0.0}
