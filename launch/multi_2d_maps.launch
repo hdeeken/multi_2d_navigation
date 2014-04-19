@@ -9,14 +9,14 @@
 
   # BASE MAP
 
-  <!--node name="mesh_publisher" pkg="lvr_tools" type="mesh_publisher" output="screen">
+  <node name="mesh_publisher" pkg="lvr_tools" type="mesh_publisher" output="screen">
 	<param name="from_file_topic" value="/input_mesh"/>
 	<param name="frame" value="/map"/>
-	<param name="from_file_path" value="/home/hdeeken/Desktop/scaled_ascii_ros_new.ply"/>
-	
-	<!- -param name="from_file_path" value="/media/media/ros-karte-data/ply/slice_test.ply"/- ->
+	<param name="from_file_path" value="/home/hdeeken/Desktop/5thFloorWithTables/cropped/triangle_mesh.ply"/>
+	<!--param name="from_file_path" value="/home/hdeeken/Desktop/scaled_ascii_ros_new.ply"/-->
+	<!--param name="from_file_path" value="/media/media/ros-karte-data/ply/slice_test.ply"/-->
 	<param name="rate" value="0.7"/>
-  </node-->
+  </node>
 
   <!-- Run the static occupancy grid -->
   <!--node pkg="map_server" type="map_server" output="screen" name="base_map" args="$(find multi_2d_navigation)/maps/costmaps/base_map.yaml" >
@@ -49,9 +49,9 @@
     <param name="frame_id" value="/map"/>
   </node-->
 
-  <!--node pkg="costmap_2d" type="costmap_2d_node" name="spine_costmap" output="screen">
+  <node pkg="costmap_2d" type="costmap_2d_node" name="spine_costmap" output="screen">
     <rosparam file="$(find multi_2d_navigation)/maps/costmaps/spine_costmap.yaml" command="load" ns="costmap" />
-  </node-->
+  </node>
 
   # ARM MAP
 
@@ -60,8 +60,8 @@
     <param name="frame_id" value="/map"/>
   </node-->
   
-  <!-- node name="arm_costmap" pkg="costmap_2d" type="costmap_2d_node" output="screen">
+  <node name="arm_costmap" pkg="costmap_2d" type="costmap_2d_node" output="screen">
     <rosparam file="$(find multi_2d_navigation)/maps/costmaps/arm_costmap.yaml" command="load" ns="costmap"/>
-  </node-->
+  </node>
 
 </launch>

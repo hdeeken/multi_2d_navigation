@@ -1,0 +1,177 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+      Splitter Ratio: 0.635688
+    Tree Height: 623
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.588679
+  - Class: rviz/Views
+    Expanded: ~
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: ""
+  - Class: rviz_label_tool/DBPanel
+    Name: DBPanel
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: ""
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.03
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 300
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 0.7
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: false
+      Name: LocMap
+      Topic: room_loc_map
+      Value: false
+    - Class: rviz/MarkerArray
+      Enabled: false
+      Marker Topic: room_loc_map_marker
+      Name: LocMapMarker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: false
+    - Alpha: 0.7
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: NavMap
+      Topic: room_nav_map
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: room_nav_map_marker
+      Name: NavMapMarker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/FocusCamera
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+    - Class: rviz_label_tool/LabelTool
+    - Class: rviz_label_tool/ConnectorTool
+    - Class: rviz_label_tool/ItemTool
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 7.7677
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 3.82283
+        Y: 1.46011
+        Z: 2.74886
+      Name: Current View
+      Near Clip Distance: 0.01
+      Pitch: 0.924016
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 2.70667
+    Saved:
+      - Angle: 0.025
+        Class: rviz/TopDownOrtho
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Name: oben
+        Near Clip Distance: 0.01
+        Scale: 76.8997
+        Target Frame: <Fixed Frame>
+        Value: TopDownOrtho (rviz)
+        X: 4.76961
+        Y: 0.348334
+      - Class: rviz/Orbit
+        Distance: 6.28284
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 3.54502
+          Y: 1.3682
+          Z: 2.58785
+        Name: seite
+        Near Clip Distance: 0.01
+        Pitch: 0.624016
+        Target Frame: <Fixed Frame>
+        Value: Orbit (rviz)
+        Yaw: 2.36667
+Window Geometry:
+  DBPanel:
+    collapsed: false
+  Displays:
+    collapsed: false
+  Height: 851
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000010f000002b0fc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006700fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000041000002b0000000e300fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000800540069006d006500000000280000035e0000003b00ffffff000000010000010f000002b0fc0200000004fb0000000e0044004200500061006e0065006c0100000041000001780000009f00fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a0056006900650077007301000001bf00000132000000b300fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000006400000003efc0100000001fb0000000800540069006d00650100000000000006400000023a00ffffff00000416000002b000000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1600
+  X: 0
+  Y: 0

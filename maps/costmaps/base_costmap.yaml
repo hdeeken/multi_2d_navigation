@@ -12,7 +12,7 @@ publish_raw_data: true
 
 #footprint usage
 # static, dynamic, topic
-footprint_type: manual 
+footprint_type: static  
 footprint: [[0.235,0.185],[-0.235,0.185],[-0.235,-0.185],[0.235,-0.185]]
 footprint_topic: /base_footprint_udate
 use_footprint_update: false
@@ -31,13 +31,12 @@ footprint_links:
  - name: structure
  - name: laser
 
-
 #layer setip
 plugins: 
-   # - {name: static_base_map,  type: "costmap_2d::StaticLayer"}
+  #  - {name: static_base_map,  type: "costmap_2d::StaticLayer"}
     - {name: mesh_layer,       type: "map_server_2d::MeshLayer"}
     - {name: base_footprint,   type: "costmap_2d::FootprintLayer"}
-    - {name: inflation_layer,  type: "costmap_2d::InflationLayer"}
+   # - {name: inflation_layer,  type: "costmap_2d::InflationLayer"}
 
 static_base_map:
     unknown_cost_value: 0
@@ -50,7 +49,7 @@ mesh_layer:
    #region: ["no", "regions"]
    use_maximum: false
    dimension: z
-   min_value: 0.05
+   min_value: 0.1
    max_value: 0.7
    resolution: 0.01
    grid_resolution: 0.01
@@ -58,7 +57,7 @@ mesh_layer:
    track_unknown_space: false
    trinary_costmap: true
    # setup input 
-   use_callback: false
+   use_callback: true
    mesh_topic: /input_mesh
    # output, mainly for debugging purposes
    publish_grid: true
@@ -71,7 +70,6 @@ mesh_layer:
    a: 1.0
    mesh_regions: 
      - {name: wall}
+    # - {name: table}
    blocked_regions:
-     - {name: blackboard, padding: 0.0}
-     - {name: calvin, padding: 0.0}
-     - {name: table, padding: 0.0}
+     - {name: pillar, padding: 0.0}

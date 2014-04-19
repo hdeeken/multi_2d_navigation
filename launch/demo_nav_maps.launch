@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-
-	<!--node name="static_tf0" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /map /odom_combined 100"/-->
-
-	<node name="postgis_services" pkg="postgis_control" type="postgis_services" output="screen">
+		<node name="postgis_services" pkg="postgis_control" type="postgis_services" output="screen">
 		<!-- if desired <remap from="postgis_services_output" to="another_topic_name"/> -->
 		<param name="db_name" value="muffin_world"/>
 		<param name="db_host" value="localhost"/>
@@ -11,34 +8,7 @@
 		<param name="db_port" value="5432"/>
 		<param name="db_password" value="gisdb"/>
 	</node>
-
-	<node pkg="laser_assembler" type="point_cloud2_assembler" name="combine_clouds" output="screen">
-		<remap from="assemble_scans2" to="combine_clouds"/>
-		<remap from="cloud" to="combine_clouds_input"/>
-		<param name="max_clouds" value="10000" />
-		<param name="fixed_frame" value="/map" />
-		<param name="ignore_laser_skew" value="false" />
-	</node>
-
-	<node name="PointCloudExporter" pkg="threedtk_tools" type="slam6d_exporter" output="screen" />
-
-	<node name="slam6d" pkg="threedtk_tools" type="slam6d_node" output="screen">
-		<param name="use_callback" value="false"/>
-		<param name="icp_meta" value="false"/>
-		<param name="icp_rand_opt" value="false"/>
-		<param name="icp_ep" value="false"/>
-		<param name="icp_anim" value="false"/>
-		<param name="icp_quiet" value="true"/>
-		<param name="icp_mindist" value="-1"/>
-		<param name="icp_maxdist" value="-1"/>
-		<param name="icp_octree_number_of_points" value="1"/>
-		<param name="icp_octree_voxelsize" value="5"/>
-		<param name="icp_types" value="0"/>
-		<param name="icp_mdm" value="50"/>
-		<param name="icp_mni" value="1000"/>
-		<param name="icp_epsilon" value="0.0000001"/>
-	</node>
-
+	
 	<node name="lvr_reconstruction" pkg="lvr_tools" type="lvr_reconstruction_node" output="screen" >
 		<param name="use_callback" value="false" />
 	</node>
@@ -67,5 +37,27 @@
 		<param name="grid_unoccupied_default" value = "0.0"/>
 	</node>
 
+	<node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find multi_2d_navigation)/rviz/nav_map_demo.rviz">
+	</node>
+	<node name="slam6d" pkg="threedtk_tools" type="slam6d_node" output="screen">
+	</node>
+        <node pkg="laser_assembler" type="point_cloud2_assembler" name="combine_clouds" output="screen">
+                <remap from="assemble_scans2" to="combine_clouds"/>
+                <remap from="cloud" to="combine_clouds_input"/>
+                <param name="max_clouds" value="10000" />
+                <param name="fixed_frame" value="/map" />
+                <param name="ignore_laser_skew" value="false" />
+        </node>
+
+	<rosparam command="load" file="$(find map_server_2d)/config/grid_generation_params.yaml" />
+
+	<node name="map_server_2d" pkg="map_server_2d" type="map_server_2d" output="screen">
+		<param name="map_frame" value="/map" />
+		<param name="only_offline_srvs" value="false" />
+		<param name="publish"   value="true"/>
+		<param name="debug"   value="false"/>
+	</node>
 
 </launch>
+
+

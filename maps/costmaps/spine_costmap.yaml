@@ -28,7 +28,7 @@ plugins:
     - {name: mesh_layer,       type: "map_server_2d::MeshLayer"}
    # - {name: static_spine_map,    type: "costmap_2d::StaticLayer"}
     - {name: spine_footprint,     type: "costmap_2d::FootprintLayer"}
-    - {name: inflation_layer,     type: "costmap_2d::InflationLayer"}
+   # - {name: inflation_layer,     type: "costmap_2d::InflationLayer"}
 
 static_spine_map:
     unknown_cost_value: 0
@@ -44,7 +44,7 @@ mesh_layer:
    g: 0.66
    a: 1.0
    marker_topic: /spine_marker
-   use_callback: false
+   use_callback: true
    mesh_topic: /input_mesh
    use_maximum: false
    dimension: z
@@ -57,7 +57,6 @@ mesh_layer:
    trinary_costmap: true
    mesh_regions: 
      - {name: wall}
+   #  - {name: table}
    blocked_regions:
-     - {name: calvin, padding: 0.0}
-     - {name: table, padding: 0.0}
-     - {name: blackboard, padding: 0.0}
+    - {name: pillar, padding: 0.0}
