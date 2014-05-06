@@ -16,7 +16,8 @@ Panels:
     Name: Tool Properties
     Splitter Ratio: 0.588679
   - Class: rviz/Views
-    Expanded: ~
+    Expanded:
+      - /Current View1
     Name: Views
     Splitter Ratio: 0.5
   - Class: rviz/Time
@@ -103,6 +104,7 @@ Visualization Manager:
     - Class: rviz_label_tool/LabelTool
     - Class: rviz_label_tool/ConnectorTool
     - Class: rviz_label_tool/ItemTool
+    - Class: rviz_label_tool/Walk
   Value: true
   Views:
     Current:
@@ -119,10 +121,10 @@ Visualization Manager:
         Z: 2.74886
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.924016
+      Pitch: 0.189016
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.70667
+      Yaw: 3.75667
     Saved:
       - Angle: 0.025
         Class: rviz/TopDownOrtho
