@@ -1,11 +1,10 @@
-controller_frequency: 10.0
-controller_patience: 10.0
+controller_frequency: 5.0
+controller_patience: 5.0
 base_global_planner: global_planner/GlobalPlanner
 
 #
 # Global Planner
 #
-
 
 GlobalPlanner:
  visualize_potential: true
@@ -35,7 +34,8 @@ TrajectoryPlannerROS:
 
   vx_samples: 8
   vtheta_samples: 20
-  dwa: false
+  dwa: true 
+  #was false
 
 #
 # Recovery Behaviors

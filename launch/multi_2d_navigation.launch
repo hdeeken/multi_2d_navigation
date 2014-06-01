@@ -15,22 +15,21 @@
 	#
 	# Navigation
 	#
-
+	<!--include file="$(find multi_2d_navigation)/launch/move_base.launch" /-->
 	<!-- static maps for testing purposes -->
 	<include file="$(find multi_2d_navigation)/launch/multi_2d_maps.launch"/>
 
 	<!-- map_server_2d: gives functionality to extract grids from the database -->
-	<!--rosparam command="load" file="$(find map_server_2d)/config/blocked_region_params.yaml" /-->
 	<rosparam command="load" file="$(find map_server_2d)/config/grid_generation_params.yaml" />
 
 	<node name="map_server_2d" pkg="map_server_2d" type="map_server_2d" output="screen">
 		<param name="map_frame" value="/map" />
 		<param name="only_offline_srvs" value="false" />
-		<param name="publish"   value="true"/>
+		<param name="publish"   value="false"/>
 		<param name="debug"   value="false"/>
 	</node>
 
 	<!-- move_base: perfoms global and local planning for given goals -->
-	<include file="$(find multi_2d_navigation)/launch/move_base.launch" />
+	<!--include file="$(find multi_2d_navigation)/launch/move_base.launch" /-->
 
 </launch>

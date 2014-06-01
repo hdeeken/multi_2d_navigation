@@ -9,12 +9,13 @@
 
 	<include file="$(find hobbes_robot)/launch/gazebo/hobbes_gazebo_common.launch" />
 
-  <!-- spawn table -->
-  <param name="table_description"
-    command="$(find xacro)/xacro.py '$(find katana_arm_gazebo)/urdf/tall_table.urdf.xacro'" />
-  <node name="spawn_table" pkg="gazebo_ros" type="spawn_model" args="-urdf -param table_description -model table_1 -x 7.5 -y 2.0 -z 0.15"
-    respawn="false" output="screen" />
+	<!-- spawn table -->
+	<param name="table_description"
+		command="$(find xacro)/xacro.py '$(find katana_arm_gazebo)/urdf/tall_table.urdf.xacro'" />
+	<node name="spawn_table" pkg="gazebo_ros" type="spawn_model" args="-urdf -param table_description -model table_1 -x 7.5 -y 2.0 -z 0.15"
+		respawn="false" output="screen" />
 
-  <node name="spawn_table2" pkg="gazebo_ros" type="spawn_model" args="-urdf -param table_description -model table_2 -x 2.15 -y -1.15 -z 0.15"
-    respawn="false" output="screen" />
+	<node name="spawn_table2" pkg="gazebo_ros" type="spawn_model" args="-urdf -param table_description -model table_2 -x 2.15 -y -1.15 -z 0.15"
+		respawn="false" output="screen" />
+
 </launch>
