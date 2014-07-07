@@ -1,8 +1,8 @@
 # global costmap param
 global_frame: map
 robot_base_frame: base_footprint
-update_frequency: 5.0
-publish_frequency: 3.5
+update_frequency: 0.05
+publish_frequency: 0.025
 
 static_map: true
 rolling_window: false
@@ -12,13 +12,14 @@ footprint_type: manual
 footprint: [[0.01,0.01],[-0.01,0.01],[-0.01,-0.01],[0.01,-0.01]]
 obstacle_range: 2.5
 raytrace_range: 3.0
+meter_scoring: true
 
 plugins: 
-    - {name: static_arm_map,                  type: "costmap_2d::DynamicLayer"}
+   # - {name: static_arm_map,                  type: "costmap_2d::DynamicLayer"}
     - {name: static_base_map,                 type: "costmap_2d::DynamicLayer"}
     - {name: static_spine_map,                type: "costmap_2d::DynamicLayer"}
     - {name: global_footprint,                 type: "costmap_2d::FootprintLayer"}
-    - {name: inflation_layer,                  type: "costmap_2d::InflationLayer"}
+  #  - {name: inflation_layer,                  type: "costmap_2d::InflationLayer"}
     
 #    - {name: static_map,                 type: "costmap_2d::StaticLayer"}
 #    - {name: static_admissable_obstacles_map,  type: "costmap_2d::StaticLayer"}

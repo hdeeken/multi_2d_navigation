@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <launch>
 
-	<!--node name="static_tf0" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /map /odom_combined 100"/-->
+	<node name="static_tf0" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /map /odom_combined 100"/>
 
 	##
 	## Localization
 	##
-	<node name="map_server" pkg="map_server" type="map_server" output="screen" args="$(find multi_2d_navigation)/maps/avz3floor_complete.yaml" >
+	<!--node name="map_server" pkg="map_server" type="map_server" output="screen" args="$(find multi_2d_navigation)/maps/avz3floor_complete.yaml" >
 		<param name="frame_id" value="/map"/>
 	</node>
 
-	<include file="$(find hobbes_navigation)/launch/amcl.launch" />
+	<include file="$(find hobbes_navigation)/launch/amcl.launch" /-->
 
 	#
 	# Navigation
