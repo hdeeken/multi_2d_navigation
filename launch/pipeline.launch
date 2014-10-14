@@ -51,8 +51,8 @@
 	</node>
 
 	<node name="lvr_slicer" pkg="lvr_tools" type="lvr_slicer_node" output="screen">
-		<param name="verbose_lvr" value="true"/>
-		<param name="activate_callback" value="true"/>
+		<param name="verbose_lvr" value="false"/>
+		<param name="activate_callback" value="false"/>
 		<!--param name="mesh_topic" value="$(arg meshFromReconstruction)"/>
 		<param name="single_slice_grid_topic" value="/single_grid"/>
 		<param name="single_slice_marker_topic" value="/single_grid_marker"/>
